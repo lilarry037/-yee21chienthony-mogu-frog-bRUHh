@@ -4,6 +4,5 @@ class Main {
   Character player = new Character();
   
 
-    
   }
 }
