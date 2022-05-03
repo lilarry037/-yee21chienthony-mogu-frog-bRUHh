@@ -21,6 +21,7 @@ public class Armor extends Item {
    /** the armor value of the armor*/
    private int armorValue;
 
+   
 
   /**
    Armor
@@ -81,7 +82,7 @@ public class Armor extends Item {
     * @param numberOfMaterials - number of materials provided to repair armor, 10 will fix a piece of armor to full durability
     */
     public double fixArmor(int numberOfMaterials) {
-      if ((getDurability() += numberOfMaterials * 10) >   MAX_DURABILITY) {
+      if ((durability += numberOfMaterials * 10) >   MAX_DURABILITY) {
         this.durability =  MAX_DURABILITY;
       }
       return durability;
