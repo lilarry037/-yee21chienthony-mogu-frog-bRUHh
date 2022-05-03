@@ -19,7 +19,7 @@ public class Armor extends Item {
    private String material;
 
    /** the armor value of the armor*/
-   private double armorValue;
+   private int armorValue;
 
 
   /**
@@ -32,8 +32,8 @@ public class Armor extends Item {
    @param durability - the durability of human
    @param armorValue - the armorValue of human
    */
-   public Armor (String name, int itemID, int maxStack, double durability, boolean edible, double hungerBoost, String material, double armorValue) {
-      super(String name, int itemID, int maxStack, double durability, boolean edible);
+   public Armor (String name, int itemID, int maxStack, double durability, String material, int armorValue) {
+      super(name, itemID, maxStack);
       this.material = material;
       this.armorValue = armorValue;
    }
@@ -70,7 +70,7 @@ public class Armor extends Item {
    * Sets the armor value of the armor
    * @param newArmorValue - new armor value of armor
    */
-   public void setArmorValue(double newArmorValue){
+   public void setArmorValue(int newArmorValue){
       this.armorValue = newArmorValue;
    }
    
@@ -81,7 +81,7 @@ public class Armor extends Item {
     * @param numberOfMaterials - number of materials provided to repair armor, 10 will fix a piece of armor to full durability
     */
     public double fixArmor(int numberOfMaterials) {
-      if ((this.durability += numberOfMaterials * 10) >   MAX_DURABILITY) {
+      if ((getDurability() += numberOfMaterials * 10) >   MAX_DURABILITY) {
         this.durability =  MAX_DURABILITY;
       }
       return durability;

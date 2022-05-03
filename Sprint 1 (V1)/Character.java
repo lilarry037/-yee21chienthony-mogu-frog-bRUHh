@@ -21,13 +21,12 @@ public class Character {
   
   /*
   private int xPosition;
-  private int yPosition;
   private int zPosition;
   */
   
   public Character (){
-    this.health = 20;
-    this.hunger = 20;
+    this.health = MAX_HEALTH;
+    this.hunger = MAX_HUNGER;
     this.xp = 0;
   }
 
@@ -55,7 +54,7 @@ public class Character {
       takeDamage(4);
       }
     else if (hunger > 0){
-      hungerbarempty == false;
+      hungerbarempty = false;
     }
   }
 

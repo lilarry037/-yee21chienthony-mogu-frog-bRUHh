@@ -32,7 +32,7 @@ public class Food extends Item{
    * changes the amount that consuming the item contributes to the player
    * @param newHungerBoost - new hunger bar boost possible for item
    */
-   public void setHungerBoost(double newHungerBoost) {
+   public void setHungerBoost(int newHungerBoost) {
       this.hungerBoost = newHungerBoost;
    }
   
