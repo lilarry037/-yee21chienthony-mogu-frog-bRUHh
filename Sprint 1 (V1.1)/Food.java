@@ -3,7 +3,7 @@ public class Food extends Item{
 
   
   /**how much does it affect the hunger bar */
-  private int hungerBoost;
+   private int hungerBoost;
 
   //Constructor
 
@@ -15,10 +15,10 @@ public class Food extends Item{
    * @param maxStack: the maximum number in a stack for the item 
    * @param hungerBoost: the amount of energy the item gives when consumed
    */
-  public Food (String name, int itemID, int maxStack, int hungerBoost){
-    super(name, itemID, maxStack);
-    this.hungerBoost = hungerBoost;
-  }
+   public Food (String name, int itemID, int maxStack, int hungerBoost){
+      super(name, itemID, maxStack);
+      this.hungerBoost = hungerBoost;
+   }
 
    /**
    * Gets the amount of boost on the hunger bar that consuming the item gives
@@ -32,23 +32,23 @@ public class Food extends Item{
    * changes the amount that consuming the item contributes to the player
    * @param newHungerBoost - new hunger bar boost possible for item
    */
-   public void setHungerBoost(int newHungerBoost) {
+   public void setHungerBoost(double newHungerBoost) {
       this.hungerBoost = newHungerBoost;
    }
   
-  public int eat(){
-    return hungerBoost;
-  }
+   public void eat(Character player, Food food){
+      player.hunger += food.hungerboost;
+   }
 
-  public void toString(){
-    String output = "";
-    output += "Name: ";
-    output += name;
-    output += "\nID: ";
-    output += itemID;
-    output += "\Hunger Boost";
-    output += hungerBoost;
+   public void toString(){
+      String output = "";
+      output += "Name: ";
+      output += name;
+      output += "\nID: ";
+      output += itemID;
+      output += "\nHunger Boost";
+      output += hungerBoost;
     
-  }
+   }
   
 }
