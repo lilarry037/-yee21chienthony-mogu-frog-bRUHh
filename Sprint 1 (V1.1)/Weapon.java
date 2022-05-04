@@ -3,6 +3,7 @@ public class Weapon extends Item {
 
    private final int MAX_ACCURACY = 100;
    private final int MIN_DURABILITY = 0;
+   private final int FARMING_DISTANCE = 5;
    
    /*
       Attributes
@@ -11,12 +12,12 @@ public class Weapon extends Item {
    /** the amount of damage the item does (if it is a weapon) */
    private double damage;
    
-   /** the accuracy of the weapon */
-   private double damageAccuracy;
+   /** the range of the weapon */
+   private double damageRadius;
 
    /** the durability of the weapon */
    private double durability;
-  
+   
    /*
       Constructor
    */
@@ -31,11 +32,11 @@ public class Weapon extends Item {
    * @param damageAccuracy: the accuracy of damage of the weapon
    * @param durability: the durability of the weapon
    */
-   public Weapon (String name, int itemID, int maxStack, double damage, double damageAccuracy, double durability) {
-     super(String name, int itemID, int maxStack)
-    this.damage = damage;
-    this.damageAccuracy = damageAccuracy;
-    this.durability = durability;
+   public Weapon (String name, int itemID, int maxStack, double damage, double damageRadius, double durability) {
+      super(name, itemID, maxStack);
+      this.damage = damage;
+      this.damageRadius = damageRadius;
+      this.durability = durability;
    }
    
    /*
@@ -51,13 +52,13 @@ public class Weapon extends Item {
    }
    
    /**
-   * Gets the accuracy of damage of the weapon
-   * @return the weapon's accuracy
+   * Gets the range of damage for the weapon
+   * @return the weapon's range
    */
-   public double getDamageAccuracy() {
-      return this.damageAccuracy;
+   public double getDamageRadius() {
+      return this.damageRadius;
    }
-
+   
    /**
    * Gets the durability of the weapon
    * @return the weapon's durability
@@ -79,11 +80,11 @@ public class Weapon extends Item {
    }
    
    /**
-   * changes the accuracy of damage for the item
-   * @param newDamageAccuracy - new damage accuracy of item
+   * changes the range of damage for the weapon
+   * @param newDamageRadius - new range of damage
    */
-   public void setDamageAccuracy(double newDamageAccuracy) {
-      this.damageAccuracy = newDamageAccuracy;
+   public void setDamageRadius(double newDamageRadius) {
+      this.damageRadius = newDamageRadius;
    }
 
    /**
@@ -95,7 +96,47 @@ public class Weapon extends Item {
    }
   
    // Methods
+
+   /**
+   * useWeapon
+   * The weapon is used on an object if it is within range.
+   * @param itemAttacked - the item that is to be attacked
    
+   public void attack(Character player, Mob npc) {
+      double distance;
+      
+      distance = Math.sqrt(Math.pow((player.x-npc.x),2) + Math.pow((player.y-npc.y),2));
+      
+      if (distance <= this.damageRadius){
+         npc.hitpoints -= this.damage;
+      } else {
+         System.out.println("Out of range.");
+      }
+   }
+   
+   /**
+   * useWeapon
+   * The weapon is used on an object if it is within range.
+   * @param itemAttacked - the item that is to be attacked
+   
+   public void farm(Character player, Item resource) {
+      double distance;
+      
+      distance = Math.sqrt(Math.pow((player.x-resource.x),2) + Math.pow((player.y-resource.y),2));
+      
+      if (FARMING_DISTANCE >= this.damageRadius){
+         if (distance <= FARMING_DISTANCE) {
+            resource.hitpoints -= this.damage;
+            // somethign to increase inventory of item
+         } else {
+            System.out.println("Out of range.");
+         }
+      } else {
+         System.out.println("Inadequate farming tool.");
+      }
+   }
+   */
+  
    /**
    * toString
    * Returns a string with the attributes of the item.
