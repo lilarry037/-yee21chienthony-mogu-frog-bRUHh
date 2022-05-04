@@ -35,10 +35,6 @@ public class Food extends Item{
   public void setHungerBoost(double newHungerBoost) {
      this.hungerBoost = newHungerBoost;
   }
-  
-  public void eat(Character player){
-     player.hunger += this.hungerboost;
-  }
 
   public void toString(){
      String output = "";
