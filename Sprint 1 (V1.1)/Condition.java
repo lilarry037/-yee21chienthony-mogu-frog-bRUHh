@@ -43,6 +43,13 @@ public class Condition extends Death_Message_Main {
     * Constructor - sets up the values
     * to become vegtables
     */
+    
+    public Condition(){
+    super();
+      this.hungerbarempty = false;
+      this.killedbymob = false;
+      this.falldamage = false;
+    }
 
         //this completely sets up the tank with every single attachment and parts together
 	  public Condition(String playerName, boolean hungerbarempty,boolean killedbymob, boolean falldamage) {
@@ -54,8 +61,11 @@ public class Condition extends Death_Message_Main {
           else if (falldamage == false){
         this.helpMessage = "You Suck at Combat - Kilgore";
         }
-          else {
+          else if(falldamage == true){
             this.helpMessage = "Mind the Gap -London Underground";
+          }
+          else {
+            this.helpMessage = "You died like a scrub - Mr lahey";
           }
     }
 

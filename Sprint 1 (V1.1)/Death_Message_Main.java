@@ -37,6 +37,7 @@ public class Death_Message_Main {
 		// Method to print out information details
     public String toString() {
     String output = "YOU ARE DEAD \n";
-    output = output + this.playerName + "died\n";
+    output = output + this.playerName + " died\n";
+    return output;
   }
 }
