@@ -96,46 +96,6 @@ public class Weapon extends Item {
    }
   
    // Methods
-
-   /**
-   * useWeapon
-   * The weapon is used on an object if it is within range.
-   * @param itemAttacked - the item that is to be attacked
-   
-   public void attack(Character player, Mob npc) {
-      double distance;
-      
-      distance = Math.sqrt(Math.pow((player.x-npc.x),2) + Math.pow((player.y-npc.y),2));
-      
-      if (distance <= this.damageRadius){
-         npc.hitpoints -= this.damage;
-      } else {
-         System.out.println("Out of range.");
-      }
-   }
-   
-   /**
-   * useWeapon
-   * The weapon is used on an object if it is within range.
-   * @param itemAttacked - the item that is to be attacked
-   
-   public void farm(Character player, Item resource) {
-      double distance;
-      
-      distance = Math.sqrt(Math.pow((player.x-resource.x),2) + Math.pow((player.y-resource.y),2));
-      
-      if (FARMING_DISTANCE >= this.damageRadius){
-         if (distance <= FARMING_DISTANCE) {
-            resource.hitpoints -= this.damage;
-            // somethign to increase inventory of item
-         } else {
-            System.out.println("Out of range.");
-         }
-      } else {
-         System.out.println("Inadequate farming tool.");
-      }
-   }
-   */
   
    /**
    * toString
@@ -143,7 +103,7 @@ public class Weapon extends Item {
    * @return returnString: 
    */
    public String toString() {
-      String returnString = "\nDamage: " + this.damage + "\nDamage Accuracy: " + this.damageAccuracy;
+      String returnString = "\nDamage: " + this.damage + "\nDamage Radius: " + this.damageRadius + "\nDurability: " + this.durabilitys;
       
       return returnString;
    }
