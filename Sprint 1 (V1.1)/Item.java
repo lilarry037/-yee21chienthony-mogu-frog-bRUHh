@@ -88,7 +88,6 @@ public class Item {
       this.itemID = newItemID;
    }
    
-   
    /**
    * changes the maximum amount allowable for a stack of the item
    * @param newMaxStack - new max stack of item
@@ -98,8 +97,6 @@ public class Item {
    }
 
    // Methods
-
-  
    
    /**
    * toString
