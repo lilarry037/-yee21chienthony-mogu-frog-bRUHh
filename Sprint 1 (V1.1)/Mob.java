@@ -8,13 +8,13 @@
 * Description: a simplistic mob
 */
 public class Mob {
-   private String name;
-   private int health;
-   private int damage;
-   private boolean dead = false;
-   private int x;
-   private int y;
-   private int z;
+   public String name;
+   public int health;
+   public int damage;
+   public boolean dead = false;
+   public int x;
+   public int y;
+   public int z;
    
    private final int MAX_HEALTH = 20;
 
@@ -34,7 +34,7 @@ public class Mob {
    
    //Accessors
    
-   public int getName() {
+   public String getName() {
       return this.name;
    }
    
@@ -55,7 +55,7 @@ public class Mob {
    }
    
    public int getZ() {
-      return this.Z;
+      return this.z;
    }
    
    public boolean getDead() {
@@ -64,7 +64,7 @@ public class Mob {
    
    //Mutators
     
-   public void setName(int newName) {
+   public void setName(String newName) {
       this.name = newName;
    }
    

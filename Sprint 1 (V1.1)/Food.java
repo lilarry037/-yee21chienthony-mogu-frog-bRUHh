@@ -3,7 +3,10 @@ public class Food extends Item{
 
   
   /**how much does it affect the hunger bar */
-  private int hungerBoost;
+  public int hungerBoost;
+  
+  /**how much does it affect the health bar */
+  public int healthBoost;
 
   //Constructor
 
@@ -25,7 +28,7 @@ public class Food extends Item{
   * Gets the amount of boost on the hunger bar that consuming the item gives
   * @return the item's hunger bar boost
   */
-  public double getHungerBoost() {
+  public int getHungerBoost() {
      return this.hungerBoost;
   }
   
@@ -33,7 +36,7 @@ public class Food extends Item{
   * Gets the amount of boost on the health bar that consuming the item gives
   * @return the item's health regen
   */
-  public double getHealthBoost() {
+  public int getHealthBoost() {
      return this.healthBoost;
   }
 
@@ -41,7 +44,7 @@ public class Food extends Item{
   * changes the amount that consuming the item contributes to the player's hunger
   * @param newHungerBoost - new hunger bar boost possible for item
   */
-  public void setHungerBoost(double newHungerBoost) {
+  public void setHungerBoost(int newHungerBoost) {
      this.hungerBoost = newHungerBoost;
   }
   
@@ -49,19 +52,17 @@ public class Food extends Item{
   * changes the amount that consuming the item contributes to the player's health
   * @param newHungerBoost - new health bar boost possible for item
   */
-  public void setHealthBoost(double newHealthBoost) {
+  public void setHealthBoost(int newHealthBoost) {
      this.healthBoost = newHealthBoost;
   }
 
-  public void toString(){
-     String output = "";
-     output += "Name: ";
-     output += name;
-     output += "\nID: ";
-     output += itemID;
+  public String toString(){
+     String output = super.toString();
      output += "\nHunger Boost";
-     output += hungerBoost;   
+     output += this.hungerBoost;   
      output += "\nHealth Boost";
-     output += healthBoost;
+     output += this.healthBoost;
+     
+     return output;
   }
 }

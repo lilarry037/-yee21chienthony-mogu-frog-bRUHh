@@ -37,7 +37,7 @@ public class Character {
    
    //Accessors
    
-   public int getName() {
+   public String getName() {
       return this.name;
    }
    
@@ -62,12 +62,12 @@ public class Character {
    }
    
    public int getZ() {
-      return this.Z;
+      return this.z;
    }
    
    //Mutators
     
-   public void setName(int newName) {
+   public void setName(String newName) {
       this.name = newName;
    }
    
@@ -100,7 +100,8 @@ public class Character {
    public void takeDamage(int amount){
       health -= amount;
       if(health <= 0){
-         //dead();
+         //Death Messages
+         System.exit(0);
       }
    }
 
@@ -115,10 +116,8 @@ public class Character {
       hunger -= amount;
       if (hunger <= 0){
          hunger = 0;
-         hungerbarempty = true;
-         //takeDamage(4); or //dead
-      } else if (hunger > 0){
-         hungerbarempty = false;
+         //Death messages
+         System.exit(0);
       }
    }
 
@@ -136,22 +135,19 @@ public class Character {
    
    public void move() {
       //Change x,y,z coordinates
+      //Print coordinates
+      //Print important info
    }
    
-   /**
-    * attack
-    * The weapon is used on an object if it is within range.
-    * @param itemAttacked - the item that is to be attacked
-    */
    public void attack(Weapon weaponUsed, Mob npc) {
        
       double distance;
-       
-      distance = Math.sqrt(Math.pow((player.x-npc.x),2) + Math.pow((this.y-npc.y),2));
-       
+      
+      distance = Math.sqrt(Math.pow((this.x-npc.x),2) + Math.pow((this.y-npc.y),2));
+      
       if (distance <= weaponUsed.damageRadius){
-         npc.hitpoints -= weaponUsed.damage;
-         if (npc.hitpoints <= 0) {
+         npc.health -= weaponUsed.damage;
+         if (npc.health <= 0) {
             //mob dies
             System.out.println("You have killed" + npc.name + "!");
          }
@@ -159,22 +155,16 @@ public class Character {
          System.out.println("Out of range.");
       }
    }
-    
-   /**
-   * farm
-   * The weapon is used on an object if it is within range.
-   * @param itemAttacked - the item that is to be attacked
-   */
-   public void farm(Weapon tool, Item block) {
+   
+   public void farm(Weapon tool, Block block) {
        
       double distance;
-       
-      distance = Math.sqrt(Math.pow((player.x-block.x),2) + Math.pow((player.y-block.y),2));
+      
+      // replace with block.x and block.y
+      distance = Math.sqrt(Math.pow((this.x-4),2) + Math.pow((this.y-4),2));
        
       if (tool.farmingTool == true){
-         if (distance <= tool.farmingTool) {
-            resource.durability -= tool.damage;
-            // if weapon breaks
+         if (distance <= tool.damageRadius) {
             // increase inventory
             // check if it exceeds maxStack (return to maxStack if so)
          } else {
@@ -183,11 +173,6 @@ public class Character {
       } else {
          System.out.println("Inadequate farming tool.");
       }  
-   }
-    
-   public void dead() {
-      //Link to death messages
-      // End game?
    }
 
    public String toString(){
@@ -202,5 +187,7 @@ public class Character {
       output += xp;
       output += "Coordinates: (";
       output += x + ", " + y + ", " + z + ")";
+      
+      return output;
    }
 }
