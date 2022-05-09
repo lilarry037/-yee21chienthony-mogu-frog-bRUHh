@@ -15,7 +15,7 @@ class Main {
       
       
       // Create character
-      startingX = (int)(Math.random(0, MAX_X));
+      startingX = (int)(Math.random(0, MAX_X)); //or put fixed values for simplicity
       startingY = (int)(Math.random(0, MAX_Y));
       
       System.out.print("What is your name: ");
@@ -38,9 +38,22 @@ class Main {
       
       
    
-      //Testing character related methods
+      //Testing character related methods (weapons and food as well)
       
-   
+      //move
+      player1.becomeHungry(4);   
+      System.out.println(player1.getHunger);
+      //spawn item
+      player1.farm(resource)
+      //spawn mob
+      //get damaged
+      player1.attack(pickaxe1, mob1);
+      player1.attack(bow1, mob1);
+      player1.eat(food);
+      player1.heal(2);
+      System.out.println(player1.getHunger);
+      System.out.println(player1.getHealth);
+      
       //Testing item related methods
       
    
