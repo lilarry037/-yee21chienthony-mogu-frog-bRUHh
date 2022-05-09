@@ -22,7 +22,7 @@ class Main {
       name = sc.nextLine();
       System.out.println();
       
-      Character player1 = new Character(startingX, startingY);
+      Character player1 = new Character(name, startingX, startingY);
       
       // Spawn Inventory
       
@@ -47,10 +47,7 @@ class Main {
       //Testing block related methods
       
    
-      //Testing mineing and inventory methods
-      
-   
-      //Testing character methods again
+      //Testing mining and inventory methods
       
    
       //Testing moving and world builder methods

@@ -14,7 +14,6 @@ public class Character {
    private int health;
    private int hunger;
    private int xp;
-   private boolean dead = false;
    private int x;
    private int y;
    private int z;
@@ -30,7 +29,6 @@ public class Character {
       this.x = x;
       this.y = y;
       this.z = 0;
-      this.dead = dead;
    }
 
    /*
@@ -67,10 +65,6 @@ public class Character {
       return this.Z;
    }
    
-   public boolean getDead() {
-      return this.dead;
-   }
-   
    //Mutators
     
    public void setName(int newName) {
@@ -100,17 +94,13 @@ public class Character {
    public void setZ(int newZ) {
       this.z = newZ;
    }
-   
-   public void setDead(boolean newDead) {
-      this.dead = newDead;
-   }
     
    //Methods
 
    public void takeDamage(int amount){
       health -= amount;
       if(health <= 0){
-         dead = true;
+         //dead();
       }
    }
 
@@ -123,14 +113,11 @@ public class Character {
 
    public void getHungry(int amount){
       hunger -= amount;
-      if (hunger < 0){
+      if (hunger <= 0){
          hunger = 0;
          hungerbarempty = true;
-      }
-      if(hunger <= 0){
-         takeDamage(4);
-      }
-      else if (hunger > 0){
+         //takeDamage(4); or //dead
+      } else if (hunger > 0){
          hungerbarempty = false;
       }
    }
@@ -148,57 +135,72 @@ public class Character {
    }
    
    public void move() {
-      
+      //Change x,y,z coordinates
    }
    
    /**
-    * useWeapon
+    * attack
     * The weapon is used on an object if it is within range.
     * @param itemAttacked - the item that is to be attacked
-    
-    public void attack(Weapon weaponUsed, Mob npc) {
-       double distance;
-       
-       distance = Math.sqrt(Math.pow((player.x-npc.x),2) + Math.pow((this.y-npc.y),2));
-       
-       if (distance <= weaponUsed.damageRadius){
-          npc.hitpoints -= this.damage;
-       } else {
-          System.out.println("Out of range.");
-       }
-    }
-    
-    /**
-    * useWeapon
-    * The weapon is used on an object if it is within range.
-    * @param itemAttacked - the item that is to be attacked
-    
-    public void farm(Character player, Item resource) {
-       double distance;
-       
-       distance = Math.sqrt(Math.pow((player.x-resource.x),2) + Math.pow((player.y-resource.y),2));
-       
-       if (FARMING_DISTANCE >= this.damageRadius){
-          if (distance <= FARMING_DISTANCE) {
-             resource.hitpoints -= this.damage;
-             // somethign to increase inventory of item
-          } else {
-             System.out.println("Out of range.");
-          }
-       } else {
-          System.out.println("Inadequate farming tool.");
-       }
-    }
     */
+   public void attack(Weapon weaponUsed, Mob npc) {
+       
+      double distance;
+       
+      distance = Math.sqrt(Math.pow((player.x-npc.x),2) + Math.pow((this.y-npc.y),2));
+       
+      if (distance <= weaponUsed.damageRadius){
+         npc.hitpoints -= weaponUsed.damage;
+         if (npc.hitpoints <= 0) {
+            //mob dies
+            System.out.print(npc.name + " something");
+         }
+      } else {
+         System.out.println("Out of range.");
+      }
+   }
+    
+   /**
+   * farm
+   * The weapon is used on an object if it is within range.
+   * @param itemAttacked - the item that is to be attacked
+   */
+   public void farm(Weapon tool, Item block) {
+       
+      double distance;
+       
+      distance = Math.sqrt(Math.pow((player.x-block.x),2) + Math.pow((player.y-block.y),2));
+       
+      if (farmingTool == true){
+         if (distance <= tool.farmingTool) {
+            resource.durability -= tool.damage;
+            // if weapon breaks
+            // increase inventory
+            // check if it exceeds maxStack (return to maxStack if so)
+         } else {
+            System.out.println("Out of range.");
+         }
+      } else {
+         System.out.println("Inadequate farming tool.");
+      }  
+   }
+    
+   public void dead() {
+      //Link to death messages
+      // End game?
+   }
 
    public String toString(){
       String output = "";
+      output += "Name: ";
+      output += name;
       output += "Health: ";
       output += health;
       output += "\nHunger: ";
       output += hunger;
       output += "\nXP: ";
       output += xp;
+      output += "Coordinates: (";
+      output += x + ", " + y + ", " + z + ")";
    }
-   
 }
