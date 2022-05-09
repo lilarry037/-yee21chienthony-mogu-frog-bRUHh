@@ -111,7 +111,7 @@ public class Character {
       }
    }
 
-   public void getHungry(int amount){
+   public void becomeHungry(int amount){
       hunger -= amount;
       if (hunger <= 0){
          hunger = 0;
@@ -153,7 +153,7 @@ public class Character {
          npc.hitpoints -= weaponUsed.damage;
          if (npc.hitpoints <= 0) {
             //mob dies
-            System.out.print(npc.name + " something");
+            System.out.println("You have killed" + npc.name + "!");
          }
       } else {
          System.out.println("Out of range.");
@@ -171,7 +171,7 @@ public class Character {
        
       distance = Math.sqrt(Math.pow((player.x-block.x),2) + Math.pow((player.y-block.y),2));
        
-      if (farmingTool == true){
+      if (tool.farmingTool == true){
          if (distance <= tool.farmingTool) {
             resource.durability -= tool.damage;
             // if weapon breaks
