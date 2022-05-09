@@ -1,11 +1,8 @@
 /**
-* Names:  Larry Li
-          Shairahavan Selvachandran
-          Kevin Yao
-          Cyrus Yang
+* Names:  Kevin Yao
 * Class: ICS4U1-5A
 * Date: April 29th, 2022
-* Description: Creates armor in Minecraft.
+* Description: Basic Character to be controlled.
 */
 
 public class Armor extends Item {
