@@ -10,13 +10,16 @@ public class Weapon extends Item {
    */
    
    /** the amount of damage the item does (if it is a weapon) */
-   private double damage;
+   private int damage;
    
    /** the range of the weapon */
    private double damageRadius;
 
    /** the durability of the weapon */
    private double durability;
+   
+   /** is it a viable farming tool (pickaxe) */
+   private boolean farmingTool;
    
    /*
       Constructor
@@ -32,11 +35,12 @@ public class Weapon extends Item {
    * @param damageAccuracy: the accuracy of damage of the weapon
    * @param durability: the durability of the weapon
    */
-   public Weapon (String name, int itemID, int maxStack, double damage, double damageRadius, double durability) {
+   public Weapon (String name, int itemID, int maxStack, int damage, double damageRadius, double durability, boolean farmingTool) {
       super(name, itemID, maxStack);
       this.damage = damage;
       this.damageRadius = damageRadius;
       this.durability = durability;
+      this.farmingTool = farmingTool;
    }
    
    /*
@@ -47,7 +51,7 @@ public class Weapon extends Item {
    * Gets the damage of the weapon
    * @return the weapon's damage
    */
-   public double getDamage() {
+   public int getDamage() {
       return this.damage;
    }
    
@@ -66,6 +70,14 @@ public class Weapon extends Item {
    public double getDurability() {
       return this.durability;
    }
+   
+   /**
+   * Gets whether the weapon is a farming tool or not
+   * @return the weapon's farming capability (true or false)
+   */
+   public double getFarmingTool() {
+      return this.farmingTool;
+   }
 
    /*
       Mutators
@@ -75,7 +87,7 @@ public class Weapon extends Item {
    * changes the amount of damage the weapon does
    * @param newDamage - new amount of damage for the weapon
    */
-   public void setDamage(double newDamage) {
+   public void setDamage(int newDamage) {
       this.damage = newDamage;
    }
    
@@ -94,7 +106,15 @@ public class Weapon extends Item {
    public void setDurability(double newDurability){
       this.durability = newDurability;
    }
-  
+   
+   /**
+   * changes the farming capability of the weapon
+   * @param newFarmingTool - the new farming capability of the weapon
+   */
+   public void setFarmingTool(double newFarmingTool){
+      this.farmingTool = newFarmingTool;
+   }
+   
    // Methods
   
    /**
