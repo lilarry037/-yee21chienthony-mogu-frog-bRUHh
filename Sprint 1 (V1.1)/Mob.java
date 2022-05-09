@@ -5,7 +5,7 @@
           Cyrus Yang
 * Class: ICS4U1-5A
 * Date: April 29th, 2022
-* Description: Creates armor in Minecraft.
+* Description: a simplistic mob
 */
 public class Mob {
    private String name;
