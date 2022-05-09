@@ -3,23 +3,23 @@ public class Weapon extends Item {
 
    private final int MAX_ACCURACY = 100;
    private final int MIN_DURABILITY = 0;
-   private final int FARMING_DISTANCE = 5;
+   public final int FARMING_DISTANCE = 5;
    
    /*
       Attributes
    */
    
    /** the amount of damage the item does (if it is a weapon) */
-   private int damage;
+   public int damage;
    
    /** the range of the weapon */
-   private double damageRadius;
+   public double damageRadius;
 
    /** the durability of the weapon */
    private double durability;
    
    /** is it a viable farming tool (pickaxe) */
-   private boolean farmingTool;
+   public boolean farmingTool;
    
    /*
       Constructor
@@ -75,7 +75,7 @@ public class Weapon extends Item {
    * Gets whether the weapon is a farming tool or not
    * @return the weapon's farming capability (true or false)
    */
-   public double getFarmingTool() {
+   public boolean getFarmingTool() {
       return this.farmingTool;
    }
 
@@ -111,7 +111,7 @@ public class Weapon extends Item {
    * changes the farming capability of the weapon
    * @param newFarmingTool - the new farming capability of the weapon
    */
-   public void setFarmingTool(double newFarmingTool){
+   public void setFarmingTool(boolean newFarmingTool){
       this.farmingTool = newFarmingTool;
    }
    
@@ -123,8 +123,9 @@ public class Weapon extends Item {
    * @return returnString: 
    */
    public String toString() {
-      String returnString = "\nDamage: " + this.damage + "\nDamage Radius: " + this.damageRadius + "\nDurability: " + this.durabilitys;
+      String output = super.toString();
+      output += "\nDamage: " + this.damage + "\nDamage Radius: " + this.damageRadius + "\nDurability: " + this.durability;
       
-      return returnString;
+      return output;
    }
 }
