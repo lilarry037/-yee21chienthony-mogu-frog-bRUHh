@@ -26,7 +26,7 @@ class Main {
       Overworld.createWorld(player1);
       
       // Spawn Inventory
-      Inventory inv = new Inventory(12);
+      Inventory inv = new Inventory();
       
       //Spawn items
       Weapon pickaxe1 = new Weapon ("wood pickaxe", 274, 1, 1, 5, 20);  // make a melee weapon
@@ -34,26 +34,26 @@ class Main {
       Weapon bow1 = new Weapon ("bow", 261, 1, 5, 25, 20);  // make a range weapon
       
       //add items to inventory
-      inv.addItem(pickaxe1, 1);
-      inv.addItem(pickaxe2, 1);
-      inv.addItem(bow1, 1);
+      inv.addItem(pickaxe1, 1, 0);
+      inv.addItem(pickaxe2, 1, 1);
+      inv.addItem(bow1, 1, 2);
       
-      //creating blocks
-      Block block = new Block("Stone", 10, 20, 100); 
-      
+
       //breaking blocks with different pickaxes
       //select the wood pickaxe
-      inv.changeSelection(pickaxe1.getItemID());
+      inv.changeSelection(1);
       
-      player1.mineBlock(22, 93, ((((Weapon)inv.getItem())).getDamage()));
-      player1.mineBlock(24, 93, ((((Weapon)inv.getItem())).getDamage()));
+      //add a mined block to the inventory
+      inv.addItem(player1.mineBlock(22, 93, ((((Weapon)inv.getItem())).getDamage())), 1, 3);
+      inv.addItem(player1.mineBlock(24, 93, ((((Weapon)inv.getItem())).getDamage())), 1, 4);
+
+      inv.changeSelection(2);
       
-      inv.changeSelection(pickaxe1.getItemID());
-      
-      player1.mineBlock(29, 93, ((((Weapon)inv.getItem())).getDamage()));
-      player1.mineBlock(12, 93, ((((Weapon)inv.getItem())).getDamage()));
+      inv.addItem(player1.mineBlock(29, 93, ((((Weapon)inv.getItem())).getDamage())), 1, 3);
+      inv.addItem(player1.mineBlock(12, 93, ((((Weapon)inv.getItem())).getDamage())), 1, 6);
       
       
+      System.out.println(inv.toString());
    
       //Testing character related methods (weapons and food as well)
       

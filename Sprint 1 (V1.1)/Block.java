@@ -2,30 +2,28 @@
 * Names: Kevin Yao
 * Class: ICS4U1-5A
 * Date: April 29th, 2022
-* Description: Creates blocks for the Overworld
+* Description: Basic Character to be controlled.
 */
 
-public class Block {
+public class Block extends Item{
    
-   private String name;
    private int x;
    private int y;
    private int durability;
    
-	public Block(String name, int x, int y, int durability) {
+	public Block(String name, int itemID, int maxStack, int x, int y, int durability) {
+	  
+		super(name, itemID, maxStack);
+		
 		this.x = x;
-      this.y = y;
-      this.durability = durability;
+		this.y = y;
+		this.durability = durability;
 	}
    
    /*
       Accessors
    */
-   
-   public String getName() {
-      return this.name;
-   }
-   
+
    public int getX() {
       return this.x;
    }
@@ -42,10 +40,6 @@ public class Block {
       Mutators
    */
    
-   public void setName(String newName) {
-      this.name = newName;
-   }
-   
    public void setPlace(int newX, int newY) {
       this.x = newX;
       this.y = newY;
@@ -59,35 +53,35 @@ public class Block {
    }
    
   
-   //List of common blocks for the overworld
+   //Basic list of blocks for the overworld
    public static Block[] listOfBlocks() {
-      //create an array of blocks to generate
+      //List of blocks that is returned
       Block[] listOfBlocks = new Block[7]; 
-      listOfBlocks[0] = new Block("Dirt", 0, 0, 20);
-      listOfBlocks[1] = new Block("Stone", 0, 0, 100); 
-      listOfBlocks[2] = new Block("Gravel", 0, 0, 0);
-      listOfBlocks[3] = new Block("Sand", 0, 0, 10);
-      listOfBlocks[4] = new Block("Iron", 0, 0, 100);
-      listOfBlocks[5] = new Block("Coal", 0, 0, 100);
-      listOfBlocks[6] = new Block("Coal", 0, 0, 50);
+      listOfBlocks[0] = new Block("Dirt", 1, 64, 0, 0, 20);
+      listOfBlocks[1] = new Block("Stone", 2, 64, 0, 0,  50); 
+      listOfBlocks[2] = new Block("Gravel", 3, 64, 0, 0,  0);
+      listOfBlocks[3] = new Block("Sand", 4, 64, 0, 0,  10);
+      listOfBlocks[4] = new Block("Iron", 5, 64, 0, 0,  100);
+      listOfBlocks[5] = new Block("Coal", 6, 64, 0, 0,  100);
+      listOfBlocks[6] = new Block("Coal", 6, 64, 0, 0,  100);
       
       return listOfBlocks;
    }
    
    //Breaking a block
    public void breakBlock(int x, int y, int pickPower, int durability) {
-       //calculates number of hits to break the block  
+         
        int numberOfHitsToBreak = durability/pickPower;
-		
+
        if (numberOfHitsToBreak < 0) {
          numberOfHitsToBreak = 0;
        }
        
-       //the block will "Clang" everytime it gets hit
+       //the block will Clang everytime it gets hit
        for(int i = 0; i < numberOfHitsToBreak; i++) {
          System.out.println("Clang");
        }
-       //Showing where the broken block was before and how many hits it took to break
+       //Outputting which block was mined and how long it took
        System.out.println("The block at x:" + x + " and y:" + y + " was mined!");
        System.out.println("It took " + numberOfHitsToBreak + " hit(s) to mine the block!");
    } 
