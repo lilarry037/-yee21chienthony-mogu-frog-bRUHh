@@ -20,6 +20,10 @@ public class Hostile_Mob extends Mob {
       this.damage = newDamage;
    }
 
+   public int getDamage() {
+      return this.damage;
+   }
+   
    public void attack(Character player) {
 
    }
