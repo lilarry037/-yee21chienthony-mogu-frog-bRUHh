@@ -1,5 +1,5 @@
 /**
-* Names:  Shairahavan Selvachandran
+* Names:  Shairahavan Selvachandran (debugged by cyrus)
 * Class: ICS4U1-5A
 * Date: April 29th, 2022
 * Description: a simplistic mob
@@ -10,7 +10,6 @@ public class Mob {
    // Attributes
    public String name;
    public int health;
-   public int damage;
    public boolean dead = false;
    public int x;
    public int y;
@@ -19,10 +18,9 @@ public class Mob {
    private final int MAX_HEALTH = 20;
           
    //Constructor
-   public Mob (String name, int damage, int x, int y){
+   public Mob (String name, int x, int y){
       this.name = name;
       this.health = MAX_HEALTH;
-      this.damage = damage;
       this.x = x;
       this.y = y;
       this.dead = dead;
@@ -40,10 +38,6 @@ public class Mob {
    
    public int getHealth() {
       return this.health;
-   }
-   
-   public int getDamage() {
-      return this.damage;
    }
    
    public int getX() {
@@ -66,10 +60,6 @@ public class Mob {
    
    public void setHealth(int newHealth) {
       this.health = newHealth;
-   }
-   
-   public void setDamage(int newDamage) {
-      this.damage = newDamage;
    }
    
    public void setX(int newX) {
