@@ -17,6 +17,8 @@ public class Armor extends Item {
 
    /** the armor value of the armor*/
    private int armorValue;
+   
+   private int durability;
 
    
 
@@ -30,8 +32,9 @@ public class Armor extends Item {
    @param durability - the durability of human
    @param armorValue - the armorValue of human
    */
-   public Armor (String name, int itemID, int maxStack, double durability, String material, int armorValue) {
+   public Armor (String name, int itemID, int maxStack, int durability, String material, int armorValue) {
       super(name, itemID, maxStack);
+      this.durability = durability;
       this.material = material;
       this.armorValue = armorValue;
    }
@@ -87,7 +90,7 @@ public class Armor extends Item {
    
    // Returns a string with all the attributes of the armor
    public String toString() {
-      String returnString = "Name: " + this.name + "\nMaterial:  " + this.material + "\nItem number: #" + this.itemID + "\nColour: " + this.colour + "\nDurability: " + this.durability + "\nArmor Value: " + this.armorValue;
+      String returnString = "Name: " + getName() + "\nMaterial:  " + this.material + "\nItem number: #" + getItemID() + "\nDurability: " + this.durability + "\nArmor Value: " + this.armorValue;
       
       return returnString;
    }

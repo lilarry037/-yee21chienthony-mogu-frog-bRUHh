@@ -26,9 +26,14 @@ class Main {
       Overworld.createWorld(player1);
       
       // Spawn Inventory
-      
+      Inventory inv = new Inventory(12);
       
       //Spawn items
+      Weapon pickaxe1 = new Weapon ("diamond pickaxe", 278, 1, 5, 5, 20);  // make a melee weapon
+      Weapon bow1 = new Weapon ("bow", 261, 1, 5, 25, 20);  // make a range weapon
+      
+      inv.addItem(pickaxe1, 1);
+      inv.addItem(bow1, 1);
       
       //creating blocks
       Block block = new Block("Stone", 10, 20, 100); 
@@ -38,8 +43,9 @@ class Main {
       player1.mineBlock(24, 93, 10);
       player1.mineBlock(29, 93, 10);
       player1.mineBlock(12, 93, 10);
-      //Spawn mobs
       
+      
+      //Spawn mobs
       
       
    
@@ -51,8 +57,7 @@ class Main {
       Mob mob1 = new Mob("creeper", 5, 20, 29); // create mob
       player1.takeDamage(5);  // test damage taken
       
-      Weapon pickaxe1 = new Weapon ("diamond pickaxe", 278, 1, 5, 5, 20);  // make a melee weapon
-      Weapon bow1 = new Weapon ("bow", 261, 1, 5, 25, 20);  // make a range weapon
+
       
       player1.attack(pickaxe1, mob1);  // attack using melee (testing out of range feature)
       

@@ -127,7 +127,7 @@ public class Character {
          health = MAX_HUNGER;
          System.out.println("Already full.");
       } else {
-         System.out.println("Yum! This " + foodEaten.name + " tastes great! Hunger Bar: " + this.hunger);
+         System.out.println("Yum! This " + foodEaten.getName() + " tastes great! Hunger Bar: " + this.hunger);
       }
       
       hunger += foodEaten.healthBoost;
@@ -153,7 +153,7 @@ public class Character {
       
       if (distance <= weaponUsed.damageRadius){
          npc.health -= weaponUsed.damage;
-         System.out.println("Clang. You have hit the " + npc.name + " for " + weaponUsed.damage + " using the " + weaponUsed.name + ".");
+         System.out.println("Clang. You have hit the " + npc.name + " for " + weaponUsed.damage + " using the " + weaponUsed.getName() + ".");
          if (npc.health <= 0) {
             //mob dies
             System.out.println("You have killed the " + npc.name + "!");
@@ -161,7 +161,7 @@ public class Character {
             System.out.println("You have gained 10 XP. You now have " + this.xp + " XP.");
          }
       } else {
-         System.out.println("Out of range for " + weaponUsed.name + ".");
+         System.out.println("Out of range for " + weaponUsed.getName() + ".");
       }
    }
 

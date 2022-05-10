@@ -15,13 +15,13 @@ public class Item {
    */
    
    /** the name of the item */
-   public String name;
+   private String name;
    
    /** the ID of the item */
    private int itemID;
    
    /** the maximum number of items in a stack */
-   public int maxStack;
+   private int maxStack;
    
    /*
       Constructor
