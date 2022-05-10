@@ -2,7 +2,7 @@
 * Names: Kevin Yao
 * Class: ICS4U1-5A
 * Date: April 29th, 2022
-* Description: Basic Character to be controlled.
+* Description: Creates blocks for the Overworld
 */
 
 public class Block {
