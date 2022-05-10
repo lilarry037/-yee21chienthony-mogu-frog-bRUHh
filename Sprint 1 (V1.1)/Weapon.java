@@ -7,10 +7,6 @@
 
 public class Weapon extends Item {
 
-   private final int MAX_ACCURACY = 100;
-   private final int MIN_DURABILITY = 0;
-   public final int FARMING_DISTANCE = 5;
-   
    /*
       Attributes
    */
