@@ -4,7 +4,9 @@
 * Date: April 29th, 2022
 * Description: Basic Character to be controlled.
 */
+
 import java.util.*;
+
 class Main {
    public static void main(String[] args) {
       
@@ -43,20 +45,32 @@ class Main {
    
       //Testing character related methods (weapons and food as well)
       
-      //move
-      player1.move(20, 23);
-      player1.becomeHungry(4);   
-      System.out.println(player1.getHunger());
-      //spawn item
-      //player1.farm(weapon, block);
-      //spawn mob
-      //get damaged
-      //player1.attack(pickaxe1, mob1);
-      //player1.attack(bow1, mob1);
-      //player1.eat(food);
-      player1.heal(2);
-      System.out.println(player1.getHunger());
-      System.out.println(player1.getHealth());
+      player1.move(20, 23); // testing movement
+      player1.becomeHungry(5);  // testing hunger 
+      
+      Mob mob1 = new Mob("creeper", 5, 20, 29); // create mob
+      player1.takeDamage(5);  // test damage taken
+      
+      Weapon pickaxe1 = new Weapon ("diamond pickaxe", 278, 1, 5, 5, 20);  // make a melee weapon
+      Weapon bow1 = new Weapon ("bow", 261, 1, 5, 25, 20);  // make a range weapon
+      
+      player1.attack(pickaxe1, mob1);  // attack using melee (testing out of range feature)
+      
+      // attack using bow (4 times to kill mob)
+      player1.attack(bow1, mob1);
+      player1.attack(bow1, mob1);
+      player1.attack(bow1, mob1);
+      player1.attack(bow1, mob1);
+      
+      // create two different foods and eat them
+      Food food1 = new Food("egg", 344, 12, 1, 0);
+      player1.eat(food1);
+      Food food2 = new Food("chicken", 10, 5, 2, 0);
+      player1.eat(food2);
+      
+      player1.heal(2);  // test healing feature
+      
+      System.out.println(player1.toString());   // test toString (show attributes after all changes
       
       //Testing item related methods
       
