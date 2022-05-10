@@ -165,13 +165,14 @@ public class Character {
       }
    }
 
-   // player mines block
+   //character mines block
    public void mineBlock(int x, int y, int pickPower) {
-      //Generating instances of the blocks
+      //Creating blocks
       Block[] newBlock;
       newBlock = Block.listOfBlocks();
       //random number to get a random block to break for show
       int randomNumber = (int)(Math.random() * ((6 - 0) + 1)) + 0;  
+      //breaks the block with 3 givens, and the durability of the random block thats created
       newBlock[randomNumber].breakBlock(x, y, pickPower, newBlock[randomNumber].getDurability()); 
    }
    
