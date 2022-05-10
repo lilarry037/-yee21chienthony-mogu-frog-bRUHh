@@ -34,7 +34,7 @@ public class Block {
       return this.y;
    }
    
-   public double getDurability() {
+   public int getDurability() {
       return this.durability;
    }
    

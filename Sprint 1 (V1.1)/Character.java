@@ -4,7 +4,7 @@
 * Date: April 29th, 2022
 * Description: Basic Character to be controlled.
 */
-
+import java.util.*;
 public class Character {
    
    private String name;
@@ -14,15 +14,16 @@ public class Character {
    private int x;
    private int y;
 
+   private static int MAX_HEALTH= 20;
+   private static int MAX_HUNGER = 20;
 
-   public Character (String name, int health, int hunger, int xp, int x, int y){
+   public Character (String name, int xp, int x, int y){
       this.name = name;
-      this.health = health;
-      this.hunger = xp;
+      this.health = MAX_HEALTH;
+      this.hunger = MAX_HUNGER;
       this.xp = 0;
       this.x = x;
       this.y = y;
-      this.z = 0;
    }
 
    /*
@@ -54,11 +55,7 @@ public class Character {
    public int getY() {
       return this.y;
    }
-   
-   public int getZ() {
-      return this.z;
-   }
-   
+
    //Mutators
     
    public void setName(String newName) {
@@ -83,10 +80,6 @@ public class Character {
    
    public void setY(int newY) {
       this.y = newY;
-   }
-   
-   public void setZ(int newZ) {
-      this.z = newZ;
    }
     
    //Methods
@@ -169,6 +162,15 @@ public class Character {
       }  
    }
 
+   public void mineBlock(int x, int y, int pickPower) {
+      //Generating instances of the blocks
+      Block[] newBlock;
+      newBlock = Block.listOfBlocks();
+      //random number to get a random block to break for show
+      int randomNumber = (int)(Math.random() * ((6 - 0) + 1)) + 0;  
+      newBlock[randomNumber].breakBlock(x, y, pickPower, newBlock[randomNumber].getDurability()); 
+   }
+
    public String toString(){
       String output = "";
       output += "Name: ";
@@ -180,7 +182,7 @@ public class Character {
       output += "\nXP: ";
       output += xp;
       output += "Coordinates: (";
-      output += x + ", " + y + ", " + z + ")";
+      output += x + ", " + y;
       
       return output;
    }
