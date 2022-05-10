@@ -62,7 +62,9 @@ class Main {
       
       
       //Spawn mobs
-      Mob mob1 = new Mob("creeper", 5, 20, 29); // create mob
+      Mob mob1 = new Hostile_Mob("creeper", 5, 20, 29, "sword"); // create mob
+      Mob mob2 = new Passive_Mob ("pig", 5, 20, false); // create mob
+      Mob mob3 = new Hostile_Mob("creeper", 5, 20, 29, "sword"); // create mob
       player1.takeDamage(5);  // test damage taken
       
 
@@ -99,6 +101,9 @@ class Main {
       
       //Killing the character
       //Death messages + conditions
+      
+      player1.takeDamage(20);  // test damage taken
+      
       System.exit(0);
    }
 }
