@@ -44,5 +44,8 @@ public class Inventory {
 		  inventorySelection = num;
 	  }
   }
+  public Item getItem() {
+	  return inventory[inventorySelection];
+  }
   
 }
