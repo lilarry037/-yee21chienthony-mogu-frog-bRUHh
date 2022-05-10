@@ -147,6 +147,7 @@ public class Character {
          if (npc.health <= 0) {
             //mob dies
             System.out.println("You have killed" + npc.name + "!");
+            xp += 10;
          }
       } else {
          System.out.println("Out of range.");
@@ -174,16 +175,16 @@ public class Character {
 
    public String toString(){
       String output = "";
-      output += "Name: ";
+      output += "\nName: ";
       output += name;
-      output += "Health: ";
+      output += "\nHealth: ";
       output += health;
       output += "\nHunger: ";
       output += hunger;
       output += "\nXP: ";
       output += xp;
-      output += "Coordinates: (";
-      output += x + ", " + y + ", " + z + ")";
+      output += "\nCoordinates: (";
+      output += x + ", " + y + ")";
       
       return output;
    }

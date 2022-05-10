@@ -35,8 +35,9 @@ class Main {
       //Testing character related methods (weapons and food as well)
       
       //move
+      System.out.println("Your hunger bar is " + player1.getHunger() + ".");
       player1.becomeHungry(4);   
-      System.out.println(player1.getHunger());
+      System.out.println("Your hunger bar is " + player1.getHunger() + ".");
       //spawn item
       //player1.farm(weapon, block);
       //spawn mob
@@ -45,8 +46,7 @@ class Main {
       //player1.attack(bow1, mob1);
       //player1.eat(food);
       player1.heal(2);
-      System.out.println(player1.getHunger());
-      System.out.println(player1.getHealth());
+      System.out.println(player1.toString());
       
       //Testing item related methods
       

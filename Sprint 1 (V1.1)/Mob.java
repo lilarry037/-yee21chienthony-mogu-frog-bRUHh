@@ -11,10 +11,8 @@ public class Mob {
    public String name;
    public int health;
    public int damage;
-   public boolean dead = false;
    public int x;
    public int y;
-   public int z;
    
    private final int MAX_HEALTH = 20;
 
@@ -24,8 +22,6 @@ public class Mob {
       this.damage = damage;
       this.x = x;
       this.y = y;
-      this.z = 0;
-      this.dead = dead;
    }
 
    /*
@@ -54,14 +50,6 @@ public class Mob {
       return this.y;
    }
    
-   public int getZ() {
-      return this.z;
-   }
-   
-   public boolean getDead() {
-      return this.dead;
-   }
-   
    //Mutators
     
    public void setName(String newName) {
@@ -83,21 +71,13 @@ public class Mob {
    public void setY(int newY) {
       this.y = newY;
    }
-   
-   public void setZ(int newZ) {
-      this.z = newZ;
-   }
-   
-   public void setDead(boolean newDead) {
-      this.dead = newDead;
-   }
     
    //Methods
 
    public void takeDamage(int amount){
       health -= amount;
       if(health <= 0){
-         dead = true;
+         //object is destroyed
       }
    }
    
