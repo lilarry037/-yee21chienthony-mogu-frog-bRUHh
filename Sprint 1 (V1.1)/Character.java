@@ -1,5 +1,5 @@
 /**
-* Names:  Shairahavan Selvachandran
+* Names:  Shairahavan Selvachandran, Kevin Yao
 * Class: ICS4U1-5A
 * Date: April 29th, 2022
 * Description: Basic Character to be controlled.
@@ -120,10 +120,11 @@ public class Character {
       }
    }
    
-   public void move() {
-      //Change x,y,z coordinates
-      //Print coordinates
-      //Print important info
+   public void move(int newX, int newY) {
+      this.setX(newX);
+      this.setY(newY);
+      this.hunger -= 1;
+      System.out.println("The Character moved to the new coordinates " + newX + ", " + newY + "!");
    }
    
    public void attack(Weapon weaponUsed, Mob npc) {

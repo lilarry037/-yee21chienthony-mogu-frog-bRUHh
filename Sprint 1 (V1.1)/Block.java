@@ -85,11 +85,11 @@ public class Block {
        
        //the block will Clang everytime it gets hit
        for(int i = 0; i < numberOfHitsToBreak; i++) {
-         System.out.println("Clang");{
+         System.out.println("Clang");
        }
        //Outputting which block was mined and how long it took
        System.out.println("The block at x:" + x + " and y:" + y + " was mined!");
        System.out.println("It took " + numberOfHitsToBreak + " hit(s) to mine the block!");
    } 
- }  	
-}
+ } 
+ 	

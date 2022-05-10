@@ -1,6 +1,12 @@
+/**
+* Names: Kevin Yao
+* Class: ICS4U1-5A
+* Date: April 29th, 2022
+* Description: Basic Character to be controlled.
+*/
 public class Overworld {
       
-    public static String createWorld(Character player) {
+    public static void createWorld(Character player) {
         //Creating instances of blocks that can be used to generate terrain
         Block[] listOfBlocks;
         Block[] createdBlocks = new Block[7]; 
@@ -18,9 +24,6 @@ public class Overworld {
                 world[i][j] = createdBlocks[randomNumber]; 
             }  
         }
-        
-        //Printing the users coordinates
-        String locationInWorld = "Your coordinates: " + player.getX() + " " + player.getY() + "(You are on a " + world[player.getX()][player.getY()].getName() + " block.";
-        return locationInWorld;
-    }  
+        System.out.println("The World has been created! You can feel free to move around and break things. The player is currently at x: " + player.getX() + " and y: " + player.getY());
+    }
 }

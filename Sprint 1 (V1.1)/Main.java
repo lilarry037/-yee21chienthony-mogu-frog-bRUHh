@@ -1,5 +1,10 @@
+/**
+* Names: Shairahavan Selvachandran, Kevin Yao
+* Class: ICS4U1-5A
+* Date: April 29th, 2022
+* Description: Basic Character to be controlled.
+*/
 import java.util.*;
-
 class Main {
    public static void main(String[] args) {
       
@@ -7,26 +12,30 @@ class Main {
 
       String name;
       
-      // Create overworld
-      
-      
       // Create character
       
       System.out.print("What is your name: ");
       name = sc.nextLine();
       System.out.println();
       
-      Character player1 = new Character(name, 100, 100);
+      Character player1 = new Character(name, 100, 0, 0);
+      
+      // Create overworld
+      Overworld.createWorld(player1);
       
       // Spawn Inventory
       
       
       //Spawn items
       
+      //creating blocks
+      Block block = new Block("Stone", 10, 20, 100); 
       
-      //Spawn blocks
-      
-      
+      //breaking blocks with 10 pickaxe power
+      player1.mineBlock(22, 93, 10);
+      player1.mineBlock(24, 93, 10);
+      player1.mineBlock(29, 93, 10);
+      player1.mineBlock(12, 93, 10);
       //Spawn mobs
       
       
@@ -35,6 +44,7 @@ class Main {
       //Testing character related methods (weapons and food as well)
       
       //move
+      player1.move(20, 23);
       player1.becomeHungry(4);   
       System.out.println(player1.getHunger());
       //spawn item
