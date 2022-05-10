@@ -8,7 +8,6 @@
 public class Mob {
    public String name;
    public int health;
-   public int damage;
    public boolean dead = false;
    public int x;
    public int y;
@@ -18,7 +17,6 @@ public class Mob {
    public Mob (String name, int damage, int x, int y){
       this.name = name;
       this.health = MAX_HEALTH;
-      this.damage = damage;
       this.x = x;
       this.y = y;
       this.dead = dead;
@@ -36,10 +34,6 @@ public class Mob {
    
    public int getHealth() {
       return this.health;
-   }
-   
-   public int getDamage() {
-      return this.damage;
    }
    
    public int getX() {
@@ -64,9 +58,6 @@ public class Mob {
       this.health = newHealth;
    }
    
-   public void setDamage(int newDamage) {
-      this.damage = newDamage;
-   }
    
    public void setX(int newX) {
       this.x = newX;
