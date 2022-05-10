@@ -13,15 +13,12 @@ public class Character {
    private int xp;
    private int x;
    private int y;
-   private int z;
-   
-   private final int MAX_HEALTH = 20;
-   private int MAX_HUNGER = 20;
 
-   public Character (String name, int x, int y){
+
+   public Character (String name, int health, int hunger, int xp, int x, int y){
       this.name = name;
-      this.health = MAX_HEALTH;
-      this.hunger = MAX_HUNGER;
+      this.health = health;
+      this.hunger = xp;
       this.xp = 0;
       this.x = x;
       this.y = y;
