@@ -59,9 +59,9 @@ public class Block {
    }
    
   
-   //Basic list of blocks for the overworld
+   //List of common blocks for the overworld
    public static Block[] listOfBlocks() {
-      //List of blocks that is returned
+      //create an array of blocks to generate
       Block[] listOfBlocks = new Block[7]; 
       listOfBlocks[0] = new Block("Dirt", 0, 0, 20);
       listOfBlocks[1] = new Block("Stone", 0, 0, 100); 
@@ -76,18 +76,18 @@ public class Block {
    
    //Breaking a block
    public void breakBlock(int x, int y, int pickPower, int durability) {
-         
+       //calculates number of hits to break the block  
        int numberOfHitsToBreak = durability/pickPower;
-
+		
        if (numberOfHitsToBreak < 0) {
          numberOfHitsToBreak = 0;
        }
        
-       //the block will Clang everytime it gets hit
+       //the block will "Clang" everytime it gets hit
        for(int i = 0; i < numberOfHitsToBreak; i++) {
          System.out.println("Clang");
        }
-       //Outputting which block was mined and how long it took
+       //Showing where the broken block was before and how many hits it took to break
        System.out.println("The block at x:" + x + " and y:" + y + " was mined!");
        System.out.println("It took " + numberOfHitsToBreak + " hit(s) to mine the block!");
    } 
