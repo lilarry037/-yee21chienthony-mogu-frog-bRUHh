@@ -12,12 +12,7 @@ public class Hostile_Mob extends Mob {
   
     public Hostile_Mob (String name, int damage, int x, int y, Item inHand){
       super(name, x, y);
-      this.name = name;
-      this.health = MAX_HEALTH;
       this.damage = damage;
-      this.x = x;
-      this.y = y;
-      this.dead = dead;
       this.inHand = inHand;
    }
   
