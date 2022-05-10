@@ -15,13 +15,13 @@ public class Hostile_Mob extends Mob {
       this.damage = damage;
       this.inHand = inHand;
    }
+   
+   public int getDamage() {
+      return this.damage;
+   }
 
     public void setDamage(int newDamage) {
       this.damage = newDamage;
-   }
-
-   public int getDamage() {
-      return this.damage;
    }
    
    public void attack(Character player) {
