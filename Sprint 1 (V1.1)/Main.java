@@ -103,7 +103,7 @@ class Main {
       //Death messages + conditions
       player1.takeDamage(20);  // test damage taken
       Boolean killedbymob = true;
-      Condition(name, false, killedbymob, false)
+      Condition(name, false, killedbymob, false);
      
       System.exit(0);
    }
