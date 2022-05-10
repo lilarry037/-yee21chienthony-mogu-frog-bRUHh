@@ -1,7 +1,5 @@
 /**
-* Names:  Larry Li
-          Shairahavan Selvachandran
-          Kevin Yao
+* Names:  Shairahavan Selvachandran
           Cyrus Yang
 * Class: ICS4U1-5A
 * Date: April 29th, 2022
@@ -14,7 +12,6 @@ public class Mob {
    public boolean dead = false;
    public int x;
    public int y;
-   public int z;
    
    private final int MAX_HEALTH = 20;
 
@@ -24,7 +21,6 @@ public class Mob {
       this.damage = damage;
       this.x = x;
       this.y = y;
-      this.z = 0;
       this.dead = dead;
    }
 
@@ -54,10 +50,6 @@ public class Mob {
       return this.y;
    }
    
-   public int getZ() {
-      return this.z;
-   }
-   
    public boolean getDead() {
       return this.dead;
    }
@@ -84,22 +76,11 @@ public class Mob {
       this.y = newY;
    }
    
-   public void setZ(int newZ) {
-      this.z = newZ;
-   }
-   
    public void setDead(boolean newDead) {
       this.dead = newDead;
    }
     
    //Methods
-
-   public void takeDamage(int amount){
-      health -= amount;
-      if(health <= 0){
-         dead = true;
-      }
-   }
    
    public void attack(Character player) {
       
