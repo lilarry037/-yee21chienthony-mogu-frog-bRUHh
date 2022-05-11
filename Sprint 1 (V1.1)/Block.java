@@ -21,7 +21,7 @@ public class Block extends Item{
 	
         /**
         * Block
-   	* Description: Creates a block at a location with durability, ID, and maxStack
+   	* Description: Constructor to create a block at a location with durability, ID, and maxStack
     	* @param name: subclass under item, so takes in a name
 	* @param itemID: subclass under item, so takes in an ID
 	* @param maxStack: subclass under item, so has a maxStack
@@ -93,10 +93,10 @@ public class Block extends Item{
    
    /**
    Creates a list of standard block objects to use for generation in the Overworld
-   @return the array of blocks
+   @return the list of blocks
    */
    public static Block[] listOfBlocks() {
-      //List of blocks that is returned
+      //an array of blocks to be returned
       Block[] listOfBlocks = new Block[7]; 
       listOfBlocks[0] = new Block("Dirt", 1, 64, 0, 0, 20);
       listOfBlocks[1] = new Block("Stone", 2, 64, 0, 0,  50); 
