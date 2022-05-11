@@ -5,7 +5,12 @@
 * Description: Creates an Overworld for the Character to move in
 */
 public class Overworld {
-      
+    
+    /**
+    * createWorld
+    * Description: Creates an Overworld for the Character to move in
+    * @param player: takes in the Character class player object to use to check coordinates later
+    */  
     public static void createWorld(Character player) {
         //Creating an array to hold all the basic types of blocks to generate a world
         Block[] listOfBlocks;
