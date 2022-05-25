@@ -60,6 +60,19 @@ public class Inventory {
         return inventoryNum[inventorySelection];
     }
 
+    public String itemType(){
+        if(inventoryNum[inventorySelection] instanceOf Weapon){
+            return "Weapon";
+        } else if(inventoryNum[inventorySelection] instanceOf Block){
+            return "Block";
+        } else if(inventoryNum[inventorySelection] instanceOf Food){
+            return "Food";
+        } else {
+            return "Armor";
+        }
+        
+    }
+    
     public String toString() {
         String returnString = "";
         for (int i = 0; i < maxItems; i++) {
