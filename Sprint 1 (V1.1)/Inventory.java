@@ -11,14 +11,11 @@ public class Inventory {
     private int inventorySelection;
 
 
-    public Inventory() {
-        this.maxItems = 64;
-        this.inventorySelection = 0;
-    }
-
     public Inventory(int maxItems, int inventorySelection) {
         this.maxItems = maxItems;
         this.inventorySelection = inventorySelection;
+        int[] inventoryNum = new int[maxItems];
+        Item[] inventory = new Item[maxItems];
     }
 
     public int getMaxItems() {
@@ -30,9 +27,7 @@ public class Inventory {
     }
 
     //no setter as maxItems is final upon creation of the inventory
-
-    int[] inventoryNum = new int[64];
-    Item[] inventory = new Item[64];
+    
 
     public void addItem(Item thing, int amount, int invPosition) {
         if (inventory[invPosition] != null) {
@@ -56,6 +51,7 @@ public class Inventory {
             inventorySelection = num;
         }
     }
+    
     public Item getItem() {
         return inventory[inventorySelection];
     }
@@ -66,7 +62,7 @@ public class Inventory {
 
     public String toString() {
         String returnString = "";
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0; i < maxItems; i++) {
             if (inventoryNum[i] > 0) {
                 returnString += inventory[i].getName() + ": " + inventoryNum[i];
                 returnString += "\n";
